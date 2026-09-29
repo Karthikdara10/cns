@@ -1,0 +1,36 @@
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+int main()
+{
+    char s[]="Hello World \0";
+    int len = strlen(s);
+    char op[len];
+    printf("Given value: %s \n"  ,s);
+    printf("Output value: ");
+    for (int i = 0;i<len; i++){
+        op[i] = s[i] ^ 0;
+        printf("%c", op[i]);
+    }
+    return 0;
+}
+
+
+#include <string.h>
+#include <stdio.h>
+int main()
+{
+    char s[] = "Hello World";
+    int len = strlen(s);
+    char op1[len+1], op2[len+1], op3[len+1];
+    for (int i = 0; i < len; i++) {
+        op1[i] = s[i] & 127;
+        op2[i] = s[i] | 127;
+        op3[i] = s[i] ^ 127;
+    }
+    op1[len] = op2[len] = op3[len] = '\0';
+    printf("AND  result: %s\n", op1);
+    printf("OR   result: %s\n", op2);
+    printf("XOR  result: %s\n", op3);
+    return 0;
+}
